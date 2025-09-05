@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: golang-api
+    env_file: ".env"
+    ports: 
+      - "127.0.0.1:${SERVER_PORT:-8080}:8080"
+    restart: unless-stopped
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
