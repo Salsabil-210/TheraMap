@@ -10,9 +10,9 @@ import (
 	"go.uber.org/zap"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	gormLogger "gorm.io/gorm/logger"
+	gormLogger "import gormLogger "gorm.io/gorm/logger"
+.io/gorm/logger"
 
-	"theramap/models"
 )
 
 // NewConnection establishes a connection to PostgreSQL using GORM
