@@ -1,6 +1,21 @@
 version: '3.9'
 
 services:
+  db:
+    image: postgres:15
+    container_name: theramap-db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    restart: always
+
   api:
     build: 
       context: .
@@ -8,12 +23,16 @@ services:
     container_name: golang-api
     env_file: ".env"
     ports: 
-      - "127.0.0.1:${SERVER_PORT:-8080}:8080"
-    restart: unless-stopped
+      - "127.0.0.1:${SERVER_PORT}:8080"
+    depends_on:
+      - db
     networks:
       - app-network
+    restart: unless-stopped
+
+volumes:
+  db_data:
 
 networks:
   app-network:
     driver: bridge
-

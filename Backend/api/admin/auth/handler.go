@@ -2,7 +2,7 @@ package auth
 
 import (
 	"github.com/gin-gonic/gin"
-	"net/http"
+
 )
 
 // Handler defines auth endpoints
