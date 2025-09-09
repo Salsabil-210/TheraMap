@@ -1,9 +1,9 @@
 package main
 
 import (
-	"theramp/infrastructure"
+    "Backend/infrastructure"  // MUST match "backend" from go.mod
 )
 
 func main() {
-	infrastructure.ConnectDB()
+    infrastructure.ConnectDB()
 }
