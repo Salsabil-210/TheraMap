@@ -6,10 +6,11 @@ type UserLoginParams struct {
 }
 
 type UserSignupParams struct {
-	FirstName string `json:"first_name" `
-	LastName  string `json:"last_name" `
-	Email     string `json:"email"`
-	Password  string `json:"password"`
+    Name     string `json:"name" binding:"required,alpha,max=85"`
+    Surname  string `json:"surname" binding:"required,alpha,max=100"`
+    Email    string `json:"email" binding:"required,email"`
+    Password string `json:"password" binding:"required,min=8"`
+    Role     string `json:"role,omitempty" binding:"omitempty,oneof=admin therapist patient user"`
 }
 
 type UserUpdateParams struct {
