@@ -33,7 +33,7 @@ func SignUp(ctx *gin.Context) {
 		return
 
 	}
-	user :={
+	user := {
 		Name: newUser.Name,
 		surname : newUser.Surname,
 		email: newUser.Email,
