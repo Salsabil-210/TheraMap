@@ -1,9 +1,14 @@
 package main
 
 import (
-    "Backend/infrastructure"  // MUST match "backend" from go.mod
+	"Backend/infrastructure" 
+	"Backend/bootstrap"
 )
 
+
+
 func main() {
-    infrastructure.ConnectDB()
+	infrastructure.ConnectDB() 
+
+	bootstrap.StartServer() 
 }
